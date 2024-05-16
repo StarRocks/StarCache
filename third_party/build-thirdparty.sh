@@ -287,7 +287,7 @@ build_curl()
     local installprefix=$2
 
     pushd $srcdir &>/dev/null
-    LIBS="-lcrypto -lssl -ldl" ./configure --prefix=$installprefix --disable-shared --enable-static \
+    LIBS="-lssl -lcrypto -ldl" ./configure --prefix=$installprefix --disable-shared --enable-static \
             --without-librtmp --with-ssl=${installprefix} --without-libidn2 --without-libgsasl --disable-ldap --enable-ipv6 --without-zstd
     make -j$PARALLEL
     make install
